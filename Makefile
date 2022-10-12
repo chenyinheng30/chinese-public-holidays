@@ -5,9 +5,9 @@ LATEST_YEAR=$(shell date +%Y)
 LATEST_ARCHIVES=calendar-archives
 LATEST_CALENDAR=chinese-public-holidays
 
-latest:
+latest: $(LATEST_ARCHIVES)/$(LATEST_CALENDAR)-$(LATEST_YEAR).ics
 	mkdir -p $(PWD)/$(OUTPUT)
-	cp $(PWD)/$(LATEST_ARCHIVES)/$(LATEST_CALENDAR)-$(LATEST_YEAR).ics $(PWD)/$(OUTPUT)/latest.ics
+	cp $(LATEST_ARCHIVES)/$(LATEST_CALENDAR)-$(LATEST_YEAR).ics $(OUTPUT)/latest.ics
 
-clean:
+clean: $(OUTPUT)
 	rm -rf $(PWD)/$(OUTPUT)
